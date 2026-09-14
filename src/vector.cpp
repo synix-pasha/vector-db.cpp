@@ -11,6 +11,7 @@ bool collection::insert_vector(const string &id, const vector<float> &inputVecto
     
     maps[id]=data.size();
     isdead.push_back(false);
+    idmap.push_back(id);
     for(int i = 0 ; i < inputVector.size() ; ++i)
         data.push_back(inputVector[i]);
     return true;
