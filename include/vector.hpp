@@ -11,7 +11,14 @@ class collection{
 
     public:
     collection(int dim);
-    bool insert_vector(std::string &id, std::vector<float> &vector);
-    bool remove_vector(std::string &id);
-    std::vector<float> get_vector(std::string &id);
+    bool insert_vector(const std::string &id, const std::vector<float> &vector);
+    bool remove_vector(const std::string &id);
+    std::vector<float> get_vector(const std::string &id) const;
+    std::vector<float> get_vector(const uint64_t index) const;
+
+    //Helper functions to access private members
+    inline bool _isdead (const uint64_t index) const { return isdead[index]; };   // return true if data[index] is dead
+    inline uint32_t _dim() const { return dim; };                                 // return dimention
+    inline uint32_t _size() const { return data.size()/_dim(); };                 // returns number of vectors in collection
+    inline uint64_t _offset(const std::string &id) const;                         // return offset to an index
 };
