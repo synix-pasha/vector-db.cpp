@@ -3,7 +3,7 @@
 #include <cmath>
 
 //Euclidean distance = sqrt(sum over(i) (|A(i) - B(i)|^2))
-float Euclidean_distance(std::vector<float> &vec1, std::vector<float> &vec2){
+float Euclidean_distance(const std::vector<float> &vec1, const std::vector<float> &vec2){
     assert(vec1.size()==vec2.size());
 
     float distance = 0.0;
@@ -15,7 +15,7 @@ float Euclidean_distance(std::vector<float> &vec1, std::vector<float> &vec2){
 }
 
 // magnitude = sqrt(sum over(i) (|A(i)|^2))
-float magnitude_(std::vector<float> &vec){
+float magnitude_(const std::vector<float> &vec){
     float magnitude = 0.0;
     for(std::size_t i = 0 ; i < vec.size() ; i++){
         magnitude += (vec[i]*vec[i]);
@@ -25,7 +25,7 @@ float magnitude_(std::vector<float> &vec){
 }
 
 // cosing similartiy = (A dot B) / (|A|*|B|)
-float cosine_similarity(std::vector<float> &vec1, std::vector<float> &vec2){
+float cosine_similarity(const std::vector<float> &vec1, const std::vector<float> &vec2){
     assert(vec1.size()==vec2.size());
 
     float dotProduct = dot_product(vec1,vec2);
@@ -40,7 +40,7 @@ float cosine_similarity(std::vector<float> &vec1, std::vector<float> &vec2){
 }
 
 // dot product = sum over(i) (|A(ij) * B(ij)|)
-float dot_product(std::vector<float> &vec1, std::vector<float> &vec2){
+float dot_product(const std::vector<float> &vec1, const std::vector<float> &vec2){
     assert(vec1.size()==vec2.size());
 
     float dotProduct = 0.0;
@@ -52,7 +52,7 @@ float dot_product(std::vector<float> &vec1, std::vector<float> &vec2){
 }
 
 //optimised distance (L2) = sum over(i) (|A(i) - B(i)|^2)
-float optimised_distance(std::vector<float> &vec1, std::vector<float> &vec2){
+float optimised_distance(const std::vector<float> &vec1, const std::vector<float> &vec2){
     assert(vec1.size()==vec2.size());
 
     float distance = 0.0;
